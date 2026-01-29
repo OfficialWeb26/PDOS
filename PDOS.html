@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Band Project Official Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (SNS Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-black: #090910;
+      --purple-main: #8f5bff;
+      --purple-strong: #6a2de0;
+      --purple-glow: rgba(143, 91, 255, 0.6);
+      --text-main: #f5f5f7;
+      --text-sub: #c5c5d1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: radial-gradient(circle at top, #140a2b 0%, var(--bg-black) 45%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--purple-main);
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url('https://i.imgur.com/6RjBO68.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 0, 30, 0.65),
+        rgba(10, 0, 30, 0.85)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.8rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 25px var(--purple-glow);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-sub);
+    }
+
+    /* ================= SECTION ================= */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 60px;
+      letter-spacing: 0.12em;
+      color: var(--purple-main);
+      text-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    /* ================= PROJECTS ================= */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 45px;
+    }
+
+    .project-card {
+      background: linear-gradient(180deg, #120b26, #0b0b14);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(143, 91, 255, 0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 45px rgba(143, 91, 255, 0.45);
+    }
+
+    .project-image {
+      height: 210px;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.2);
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .project-content h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+      color: var(--purple-main);
+    }
+
+    .project-content p {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 22px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .links a {
+      border: 1px solid var(--purple-main);
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .links a:hover {
+      background: var(--purple-main);
+      color: #000;
+      box-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    /* ================= SNS ================= */
+    .sns {
+      margin-top: 90px;
+      text-align: center;
+    }
+
+    .sns h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      color: var(--purple-main);
+      letter-spacing: 0.1em;
+    }
+
+    .sns-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 1.8rem;
+    }
+
+    .sns-icons a {
+      color: var(--text-main);
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .sns-icons a:hover {
+      color: var(--purple-main);
+      text-shadow: 0 0 18px var(--purple-glow);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 50px 20px;
+      text-align: center;
+      border-top: 1px solid #1d1d2e;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      section {
+        padding: 70px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Plush doll of sheep</h1>
+      <p>PDOS / XI / EMDAYS</p>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2 class="section-title">PROJECTS</h2>
+
+    <div class="projects">
+
+<div class="project-card">
+  <div class="project-image"
+       style="background-image: url('https://i.imgur.com/lifh4ow.jpeg');">
+  </div>
+
+  <div class="project-content">
+    <h3>PDOS</h3>
+    <p>
+      メタルコア中心に活動しているプロジェクト。固定のボーカルが存在せず、
+      数多のボーカリストとのコラボが中心。
+    </p>
+
+    <div class="links">
+      <a href="https://big-up.style/QtU9g5JBIk" class="hover-link"target="_blank" rel="noopener">>
+        MUSIC LINK FOR "AMF"
+        <span class="hover-image">
+          <img src="https://i.imgur.com/IQ5Kwu8.jpeg" alt="AMF jacket">
+        </span>
+      </a>
+
+      <a href="https://big-up.style/IXQSQkq3z9" class="hover-link"target="_blank" rel="noopener">>
+        MUSIC LINK FOR "Ghost Apple"
+        <span class="hover-image">
+          <img src="https://i.imgur.com/4ZE4ayF.jpeg" alt="Ghost Apple jacket">
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-image"
+       style="background-image: url('https://i.imgur.com/TCBmpd3.jpeg');">
+  </div>
+
+  <div class="project-content">
+    <h3>XI</h3>
+    <p>トラップメタル中心に活動しているプロジェクト。コンポーザーDOLL$AWとボーカルYuri Zuisenの二人組プロジェクト
+    </p>
+
+    <div class="links">
+      <a href="https://big-up.style/eLd1lMmpII" class="hover-link"target="_blank" rel="noopener">>
+        MUSIC LINK FOR "BullEd"
+        <span class="hover-image">
+          <img src="https://i.imgur.com/nNFQIoH.jpeg" alt="BullEd jacket">
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-image"
+       style="background-image: url('https://i.imgur.com/vB0Rxol.jpeg');">
+  </div>
+
+  <div class="project-content">
+    <h3>EMDAYS</h3>
+    <p>フューチャーメタルを中心に活動しているプロジェクト。コンポーザーDOLL$AWとAKIRAの二人組プロジェクト
+
+    </p>
+
+    <div class="links">
+      <a href="#" class="hover-link"target="_blank" rel="noopener">>
+        MUSIC LINK FOR "OVERDOSE"
+        <span class="hover-image">
+          <img src="https://i.imgur.com/HmLT0Gk.jpeg" alt="OVERDOSE jacket">
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+    </div>
+    <!-- SNS -->
+<div class="sns">
+  <h3>FOLLOW US</h3>
+  <div class="sns-icons">
+    <a href="https://x.com/PDOS_"
+       target="_blank"
+       rel="noopener"
+       aria-label="X">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="https://www.instagram.com/plushdollofsheep?igsh=bXB5ZHByc3pmMWZh"
+       target="_blank"
+       rel="noopener"
+       aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://youtube.com/@plushdollofsheep?si=FfpkV1LMasUerWhu"
+       target="_blank"
+       rel="noopener"
+       aria-label="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a href="https://soundcloud.com/slfxcewlaoco"
+       target="_blank"
+       rel="noopener"
+       aria-label="SoundCloud">
+      <i class="fa-brands fa-soundcloud"></i>
+    </a>
+  </div>
+</div>
+
+  </section>
+
+  <footer>
+    © 2026 Band Project. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
